@@ -11,32 +11,37 @@
     <meta charset="utf-8">
     <!-- bevisst: blokkerer zoom (dårlig for UU) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" text="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>forside for verden beste nettside</title> <!-- bevisst: vag tittel -->
     
   </head>
   <body>
-    <header></header>
+    <header>
       <span class="logo" aria-hidden="true"></span> <!-- bevisst: viktig info kun i bilde uten tekstalternativ -->
       <span class="site-title">Min side</span>
     </header>
 
     <nav> <!-- bevisst: upresist role og ingen semantisk <nav> -->
-      <a href="#">Hjem</a>
-      <a href="#">Om oss</a>
-      <div class="dropdown">
-        <a href="#">Tjenester</a>
-        <ul>
-          <li><a href="#">Design</a></li>
-          <li><a href="#">Utvikling</a></li>
-          <li><a href="#">Konsulent</a></li>
-        </ul>
-      </div>
-      <a href="#">Kontakt</a>
+      <ul>
+        <li><a href="#">Hjem</a></li>
+        <li><a href="#">Om oss</a></li>
+        <li>
+          <details>
+            <summary>Tjenester</summary>
+            <ul>
+              <li><a href="#">Design</a></li>
+              <li><a href="#">Utvikling</a></li>
+              <li><a href="#">Konsulent</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="#">Kontakt</a></li>
+
+      </ul>
     </nav>
 
     <section>
-      <p>Viktig beskjed: Les dette! Klikk her! Klikk her! Klikk her! Veldig viktig! ✨</p>
+      <h2>Viktig beskjed: Les dette! Klikk her! Klikk her! Klikk her! Veldig viktig!</h2>
     </section>
 
     
@@ -73,18 +78,35 @@
           <div class="card form">
             <h4>Kontakt oss</h4>
             <!-- bevisst: ingen <label> og kun placeholder, dupliserte id-er, dårlig kontrast, farge som eneste signal -->
-            <input type="text" id="navn" placeholder="Navn*">
-            <input type="email" id="navn" placeholder="E-post*"> <!-- bevisst: duplisert id -->
-            <input type="tel" placeholder="Telefon">
-            <select>
-              <option>Velg tema*</option>
-              <option>Bestilling</option>
-              <option>Support</option>
-            </select>
-            <textarea rows="3" placeholder="Melding..."></textarea>
-            <p class="help">Felt merket med <span class="required">rød farge</span> er obligatoriske.</p>
-            <p class="error">skjemaet er feil utfylt</p> <!-- bevisst: lav kontrast på feilmelding, små bokstaver -->
-            <span class="fake-submit" role="button" tabindex="5">Send</span> <!-- bevisst: span som knapp, positiv tabindex -->
+              <form>
+                <label>Navn:
+                  <input type="text" id="navn" placeholder="Gary kål" required>
+                </label>
+                
+                <label>Epost:
+                   <input type="email" id="email" placeholder="ran@ran.no" required> <!-- bevisst: duplisert id -->
+                </label>
+                
+                  
+                </label>Tel:
+                <label><input type="tel" placeholder="400 00 900" required>
+                </label>
+               
+                <label for="service">Tjeneste</label>
+                <select id="service">
+                  <option>Velg tema*</option>
+                  <option>Bestilling</option>
+                  <option>Support</option>
+                </select>
+
+                <label>
+                  <textarea rows="3" placeholder="Lorem ipsum Team Flare visited Team Rocket's Castle in Alola."></textarea>
+                </label>
+                
+                <p class="help">Felt merket med <span class="required">rød farge</span> er obligatoriske.</p>
+                <p class="error">skjemaet er feil utfylt</p> <!-- bevisst: lav kontrast på feilmelding, små bokstaver -->
+                <input type="submit" value="Send"> <!-- bevisst: span som knapp, positiv tabindex -->
+              </form>
           </div>
 
           <div class="card weird-order">
@@ -101,7 +123,7 @@
 
           <div class="card">
             <h4>Tabell uten overskrifter</h4>
-            <table border="1" width="100%">
+            <table>
               <tr><td>1</td><td>2</td><td>3</td></tr>
               <tr><td>4</td><td>5</td><td>6</td></tr>
               <tr><td>7</td><td>8</td><td>9</td></tr>
@@ -123,10 +145,10 @@
 
     <footer>
       <!-- bevisst: kontaktinfo kun i bilde uten alt-tekst -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Facebook_icon.svg">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Twitter_logo.svg">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-      <p style="font-size:10px; color:#bfbfbf">© 2025 ACME</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Facebook_icon.svg" alt="Facebook ikon for lenke til facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Twitter_logo.svg" alt="Twitter ikon for lenke til twitter">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram ikon for lenke til instagram">
+      <p>© 2025 ACME</p>
     </footer>
 
   </body>
